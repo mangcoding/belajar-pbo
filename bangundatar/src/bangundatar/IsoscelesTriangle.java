@@ -7,6 +7,6 @@ public class IsoscelesTriangle extends Triangle {
 
     @Override
     public void calcArea() {
-        this.area = 0.5 * this.base * this.height;
+        super.area = 0.5 * super.base * super.height;
     }
 }

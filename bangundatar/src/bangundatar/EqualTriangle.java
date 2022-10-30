@@ -11,11 +11,11 @@ public class EqualTriangle extends Triangle {
     @Override
     public void calcArea() {
         double height = Math.sqrt(Math.pow(sideLength, 2) - Math.pow(sideLength/2, 2));
-        this.area = 0.5 * this.base * height;
+        super.area = 0.5 * this.sideLength * height;
     }
 
     @Override
     public void calcPerimeter() {
-        this.perimeter = 3*this.sideLength;
+        super.perimeter = 3*this.sideLength;
     }
 }
