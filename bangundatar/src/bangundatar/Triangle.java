@@ -28,6 +28,7 @@ abstract class Triangle implements Shape{
         this.hypotenuse = base;
     }
 
+    @Override
     public void calcPerimeter() {
         this.perimeter = this.base + this.height + this.hypotenuse;
     }
