@@ -1,4 +1,4 @@
-import bangundatar.*;
+import bangundatar.EqualTriangle;
 import java.util.Scanner;
 
 public class App {
