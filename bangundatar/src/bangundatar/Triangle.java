@@ -1,11 +1,11 @@
 package bangundatar;
 
 abstract class Triangle implements Shape{
-    protected double base;
-    protected double height;
-    protected double hypotenuse;
-    protected double area;
-    protected double perimeter;
+    public double base;
+    public double height;
+    public double hypotenuse;
+    public double area;
+    public double perimeter;
 
     public abstract void calcArea();
 

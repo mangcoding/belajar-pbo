@@ -15,6 +15,7 @@ public class Main {
             }else{
                 System.out.println("Nilai yang diinput: "+angka);
             }
+            input.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

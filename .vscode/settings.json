@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "exception/src",
+        "dbsample/src",
+        "dbsample",
+        "percabangan/src"
+    ]
+}
