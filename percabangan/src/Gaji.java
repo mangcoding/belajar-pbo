@@ -27,7 +27,7 @@ public class Gaji {
 
         gajiTotal = gajiPokok + UpahLembur + Bonus;
 
-        NumberFormat nf = NumberFormat.getInstance(new Locale("id", "ID"));
+        NumberFormat nf = NumberFormat.getInstance(new Locale("usa", "USA"));
         
         String gajiTotalFormatted = nf.format(gajiTotal);
 
