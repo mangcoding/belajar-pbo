@@ -1,22 +1,23 @@
 public class App {
     public static void main(String[] args) {
-        System.out.println("Dasar Java");
+        // Input
+        Double reamur = 80.00;
 
-        // Deklarasi Variabel
-        int a = 5;
+        // Process
+        Double celcius = 5.00/4 * reamur;
+        Double fahrenheit = 9.00/5 * celcius + 32;
+        Double kelvin = celcius + 273;
 
-        // Operator Aritmatika
-        a *=7;
-        a /=5;
-        a %=4;
-
-        System.out.println(a);
-
-        // calculate age from year of birth
-        int yearOfBirth = 1990;
-        int yearNow = 2023;
-        int age = yearNow - yearOfBirth;
-        
-        System.out.println(age);
+        // Output
+        System.out.println("Reamur: " + reamur);
+        System.out.println("Celcius: " + celcius);
+        System.out.println("Fahrenheit: " + fahrenheit);
+        System.out.println("Kelvin: " + kelvin);
     }
 }
+
+/*
+ * String untuk teks
+ * Double untuk angka yang ada komanya
+ * Integer untuk angka yang tidak ada komanya
+ */

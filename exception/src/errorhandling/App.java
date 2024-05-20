@@ -1,21 +1,25 @@
 package errorhandling;
-
 public class App {
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3};
         try {
-            if (numbers.length > 10) {
-                System.out.println(numbers[10]);
-            } else {
-                System.out.println(numbers[11]);
-            }
-        } catch (Exception e) {
-            System.out.println("Terjadi error: " + e.getMessage());
+            int age = App.getAge(5000);
+            System.out.println("Age: " + age+" tahun");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
         }
+    }
 
-        System.out.println("Program Selanjutnya");
-        System.out.println("Program Selanjutnya 2");
-        System.out.println("Program Selanjutnya 3");
-
+    public static int getAge(int yearOfBirth) {
+        if (yearOfBirth <= 0) {
+            throw new IllegalArgumentException("Year of birth should be greater than 0");
+        }else if (yearOfBirth > 2024) {
+            throw new ArithmeticException("Year of birth should be less than 2024");
+        }
+        int age = 2024 - yearOfBirth;
+        return age;
     }
 }
+
+

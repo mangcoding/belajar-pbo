@@ -9,7 +9,16 @@ public class Contoh {
         System.out.print(jumlah.get(2));
 
         for(int i = 0; i < jumlah.size(); i++){
-            System.out.println(jumlah.get(i));
+            System.out.print(jumlah.get(i)+" ");
+        }
+
+        ArrayList <String> nama = new ArrayList<String>();
+        nama.add("Riko");
+        nama.add("Pardi");
+        nama.add("Leoni");
+
+        for (String name:nama) {
+            System.out.println(name);
         }
     }
 }

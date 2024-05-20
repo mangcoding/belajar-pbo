@@ -1,22 +1,17 @@
 import java.util.Scanner;
-
 public class Main {
-    public static void main(String[] args) throws Exception {
-        /* Mengulang Kalimat sebanyak 10 kali */
-        for (int i=1; i<=10; i++) {
-            System.out.println(i+". Aku sayang kamu");
-        }
-
-        int x =1;
+    public static void main(String[] args) {
+        int pilihan = 0;
+        Scanner inputan = new Scanner(System.in);
         do {
-            System.out.println(x+". Aku sayang kamu");
-            x +=1; // x=x+1 atau x++
-        }while(x<=10);
-
-        x =1;
-        while (x<=100) {
-            System.out.println(x+". Aku sayang kamu");
-            x +=1; // x=x+1 atau x++
-        }
+            System.out.println("==================================");
+            System.out.println("1. Input Data");
+            System.out.println("2. Lihat Data");
+            System.out.println("3. Keluar");
+            System.out.println("==================================");
+            System.out.print("Pilih Menu: ");
+            pilihan = inputan.nextInt();
+        }while(pilihan != 3);
+        inputan.close();
     }
 }

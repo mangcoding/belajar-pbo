@@ -1,5 +1,6 @@
 package errorhandling;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -8,16 +9,17 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.print("Masukkan nilai: ");
         try {
-            // get string from input
-            int angka = input.nextInt();
-            if (angka > 10) {
-                throw new Exception("Terjadi error, Nilai yang diinput tidak boleh lebih dari 10");
-            }else{
-                System.out.println("Nilai yang diinput: "+angka);
-            }
-            input.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+            int number = input.nextInt();
+            int result = number*10;
+            System.out.println("Hasil perkalian: " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Terjadi error salah input data");
+        } finally{
+            System.out.println("Finally you been here");
         }
+        
+        System.out.println("Perintah selanjutnya");
+        input.close();
     }
 }
+

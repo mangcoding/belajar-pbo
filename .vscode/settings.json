@@ -1,8 +1,13 @@
 {
     "java.project.sourcePaths": [
+        "perulangan/src",
+        "percabangan/src",
+        "pbo-2024/shape/src",
         "exception/src",
         "dbsample/src",
         "dbsample",
-        "percabangan/src"
+        "belajar-array/src",
+        "belajar-array-list/src",
+        "generic/src"
     ]
 }
