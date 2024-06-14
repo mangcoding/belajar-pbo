@@ -1,49 +1,64 @@
 package com.nugraha.libraryweb.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.Model;
 import com.nugraha.libraryweb.entity.Book;
 import com.nugraha.libraryweb.service.BookService;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("/api/books")
+@Controller
+@RequestMapping("/books")
 
 public class BookController {
     @Autowired
     private BookService bookService;
 
     @GetMapping
-    public List<Book> findAll() {
-        return bookService.findAll();
+    public String showBookList(Model model){
+        List<Book> books = bookService.findAll();
+        model.addAttribute("books", books);
+        return "books";
     }
 
-    @GetMapping("/dummy")
-    public void dummy() {
-        Book book= new Book("Algorithm", "Nugraha, M.kom", "123-5678-9101");
-        bookService.save(book);
+    @GetMapping("/add")
+    public String showBookForm(Book book) {
+        return "book-create";
     }
 
-    @RequestMapping(value="/save", method=RequestMethod.GET)
-    @ResponseBody
-    public String save(@RequestParam("title") String title, @RequestParam("author") String author, @RequestParam("isbn") String isbn){
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable("id") Long id, Model model){
+        Book book = bookService.findById(id);
+        model.addAttribute("book", book);
+        return "book-edit";
+    }
+
+    @PostMapping("/add")
+    public String createBook(@RequestParam("title") String title, @RequestParam("author") String author, @RequestParam("isbn") String isbn){
         Book book = new Book(title, author, isbn);
         bookService.save(book);
-        return "Successfully save books";
+        return "redirect:/books";
     }
 
-    @RequestMapping(value="/store", method=RequestMethod.POST)
-    @ResponseBody
-    public String store(@RequestParam("title") String title, @RequestParam("author") String author, @RequestParam("isbn") String isbn){
-        Book book = new Book(title, author, isbn);
+    @PostMapping("/update/{id}")
+    public String updateBook(@PathVariable("id") Long id, @RequestParam("title") String title, @RequestParam("author") String author, @RequestParam("isbn") String isbn){
+        Book book = bookService.findById(id);
+        book.setTitle(title);
+        book.setAuthor(author);
+        book.setIsbn(isbn);
         bookService.save(book);
-        return "Successfully save books with "+title;
+        return "redirect:/books";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable("id") Long id){
+        bookService.deleteById(id);
+        return "redirect:/books";
     }
 }
