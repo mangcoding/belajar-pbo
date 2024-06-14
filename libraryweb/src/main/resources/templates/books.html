@@ -9,17 +9,17 @@
 <body>
     <div class="container" th:switch="${books}">
         <h2 th:case="null">No books yet!</h2>
-            <div th:case="*">
-                <h2>Books</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Author</th>
-                            <th>ISBN</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+        <div th:case="*">
+        <h2>Books</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
                     <tr th:each="book : ${books}">
                         <td th:text="${book.title}"></td>
                         <td th:text="${book.author}"></td>
