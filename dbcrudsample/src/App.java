@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class App {
-    public static void main(String[] args) throws Exception  {
+    public static void main(String[] args) throws SQLException  {
         String url = "jdbc:mysql://localhost:3306/elearning";
         String username = "root";
         String password = "noekasep@ok!!";
